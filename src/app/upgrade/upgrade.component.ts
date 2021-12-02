@@ -12,4 +12,6 @@ export class UpgradeComponent implements OnInit {
   ngOnInit() {
   }
 
+  /* azea*/
+
 }
