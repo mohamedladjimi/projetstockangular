@@ -1,0 +1,101 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Ajout Produit</h4>
+                        <p class="card-category">ajout information du produit</p>
+                    </div>
+                    <div class="card-body">
+                          <div [hidden]="submitted" style="width: 400px;">
+                          <form (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" enctype="multipart/form-data">
+                              <div class="form-group">
+                              <label for="name">libelle</label>
+                              <input type="text" class="form-control" id="libelle" #libelle="ngModel" required minlength="3" [(ngModel)]="produit.libelle" name="libelle" [ngClass]="{ 'is-invalid': f.submitted && libelle.invalid }">
+                              <div *ngIf="f.submitted && libelle.invalid" class="invalid-feedback">
+                                  <div *ngIf="libelle.errors.required">champ obligatoire</div>
+                                  <div *ngIf="libelle.errors.minlength">vérifier longeur</div>
+                              </div>
+                          </div>
+                              
+  
+                              <div class="form-group">
+                              <label for="name">code</label>
+                              <input type="text" class="form-control" id="code" #code="ngModel" minlength="5" required [(ngModel)]="produit.code" name="code" [ngClass]="{ 'is-invalid': f.submitted && code.invalid }">
+  
+                              <div *ngIf="f.submitted && code.invalid" class="invalid-feedback">
+                                  <div *ngIf="code.errors.minlength">longeur minimale 5 </div>
+                                  <div *ngIf="code.errors.required">champ obligatoire</div>
+                              </div>
+                          </div>
+  
+                              <div class="form-group">
+                              <label for="qteMin">Prix Unitaire</label>
+                              <input type="number" class="form-control" id="prixunit" #prixUnitaire="ngModel" min="0"required [(ngModel)]="produit.prixUnitaire" name="prixUnitaire" [ngClass]="{ 'is-invalid': f.submitted && prixUnitaire.invalid }">
+                              <div *ngIf="f.submitted && prixUnitaire.invalid" class="invalid-feedback">
+                                  <div *ngIf="prixUnitaire.errors.min">Prix doit être positive </div>
+                                  <div *ngIf="prixUnitaire.errors.required">champ obligatoire</div>
+                              </div>
+                          </div>
+
+                                <h4>Rayon</h4>
+                                <mat-form-field appearance="fill">
+                                <mat-label>rayon</mat-label>
+                                <mat-select [(ngModel)]="selectedR" required>
+                                    <mat-option *ngFor="let r of rayons" [value]="r.idRayon">
+                                    {{r.libelle}}
+                                    </mat-option>
+                                </mat-select>
+                                </mat-form-field>
+
+                                <h4>Stock</h4>
+                                <mat-form-field appearance="fill">
+                                <mat-label>stock</mat-label>
+                                <mat-select [(ngModel)]="selectedS" required>
+                                    <mat-option *ngFor="let s of stocks" [value]="s.idStock">
+                                    {{s.libelleStock}}
+                                    </mat-option>
+                                </mat-select>
+                                </mat-form-field>
+
+                                <h4>Categorie</h4>
+                                <mat-form-field appearance="fill">
+                                <mat-label>categorie</mat-label>
+                                <mat-select [(ngModel)]="cat" required>
+                                    <mat-option *ngFor="let c of categories" [value]="c.value">
+                                    {{c.value}}
+                                    </mat-option>
+                                </mat-select>
+                                </mat-form-field>
+
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="image" #imagenInputFile
+                                    (change)="onFileChange($event)" accept="image/png, image/jpeg, image/gif">
+                                    <label class="custom-file-label" for="image">ajouter une image</label>
+                                </div>
+                                <div *ngIf="image" class="mt-5">
+                                    <div>
+                                        <img class="image-thumbnail" style="max-width: 100px" [src]="imageMin">
+                                    </div>
+                                </div>
+                                
+  
+                              <button type="submit" class="btn btn-success">Ajouter</button>
+                              <button (click)="listProduits()" class="btn btn-">retour</button>
+                          </form>
+
+                          </div>
+  
+                          <!-- <div [hidden]="!submitted">
+                          <h4>You submitted successfully!</h4>
+                          <button (click)="listProduits()" class="btn btn-success">retour</button>
+                          <!-- <button class="btn btn-success" (click)="newEmployee()">Add</button> -->
+                          <!-- </div> --> 
+                      </div>
+                  </div>
+              </div>
+        </div>
+    </div>
+  </div>
+  

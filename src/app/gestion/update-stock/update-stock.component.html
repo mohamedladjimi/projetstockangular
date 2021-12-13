@@ -1,0 +1,58 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Modifier Stock</h4>
+                        <p class="card-category">Modifier information du stock</p>
+                    </div>
+                    <div class="card-body">
+                          <!-- <div [hidden]="submitted" style="width: 400px;"> -->
+                          <form (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm">
+                              <div class="form-group">
+                              <label for="name">libelle</label>
+                              <input type="text" class="form-control" id="libelle" #libelle="ngModel" required minlength="3" [(ngModel)]="stock.libelleStock" name="libelle" [ngClass]="{ 'is-invalid': f.submitted && libelle.invalid }">
+                              <div *ngIf="f.submitted && libelle.invalid" class="invalid-feedback">
+                                  <div *ngIf="libelle.errors.required">champ obligatoire</div>
+                                  <div *ngIf="libelle.errors.minlength">vérifier longeur</div>
+                              </div>
+                          </div>
+                              
+  
+                              <div class="form-group">
+                              <label for="name">quantité</label>
+                              <input type="number" class="form-control" id="quantite" #qte="ngModel" min="10" required [(ngModel)]="stock.qte" name="quantite" [ngClass]="{ 'is-invalid': f.submitted && qte.invalid }">
+  
+                              <div *ngIf="f.submitted && qte.invalid" class="invalid-feedback">
+                                  <div *ngIf="qte.errors.min">qte < 10 </div>
+                                  <div *ngIf="qte.errors.required">champ obligatoire</div>
+                                  <div *ngIf="qte.value < qteMin.value ">qte insuffisante</div>
+                              </div>
+                          </div>
+  
+                              <div class="form-group">
+                              <label for="qteMin">quantite minimale</label>
+                              <input type="number" class="form-control" id="qteMin" id="quantite" #qteMin="ngModel" min="1"required [(ngModel)]="stock.qteMin" name="qteMin" [ngClass]="{ 'is-invalid': f.submitted && qteMin.invalid }">
+                              <div *ngIf="f.submitted && qteMin.invalid" class="invalid-feedback">
+                                  <div *ngIf="qteMin.errors.min">qteMin < 1 </div>
+                                  <div *ngIf="qteMin.errors.required">champ obligatoire</div>
+                              </div>
+                          </div>
+  
+                              <button type="submit" class="btn btn-success">Modifier</button>
+                          </form>
+                          <!-- </div> -->
+  
+                          <!-- <div [hidden]="!submitted">
+                          <h4>You submitted successfully!</h4> -->
+                          <!-- <button (click)="listStocks()" class="btn btn-success">retour</button> -->
+                          <!-- <button class="btn btn-success" (click)="newEmployee()">Add</button> -->
+                          <!-- </div> -->
+                      </div>
+                  </div>
+              </div>
+        </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,57 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Ajout Rayon</h4>
+                        <p class="card-category">ajout information du rayon</p>
+                    </div>
+                    <div class="card-body">
+                          <div [hidden]="submitted" style="width: 400px;">
+                          <form (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm">
+                              <div class="form-group">
+                              <label for="name">libelle</label>
+                              <input type="text" class="form-control" id="libelle" #libelle="ngModel" required minlength="3" [(ngModel)]="rayon.libelle" name="libelle" [ngClass]="{ 'is-invalid': f.submitted && libelle.invalid }">
+                              <div *ngIf="f.submitted && libelle.invalid" class="invalid-feedback">
+                                  <div *ngIf="libelle.errors.required">champ obligatoire</div>
+                                  <div *ngIf="libelle.errors.minlength">longeur minimale 3</div>
+                              </div>
+                          </div>
+                              
+  
+                              <div class="form-group">
+                              <label for="name">code</label>
+                              <input type="text" class="form-control" id="code" #code="ngModel" required minlength="5" [(ngModel)]="rayon.code" name="code" [ngClass]="{ 'is-invalid': f.submitted && code.invalid }">
+  
+                              <div *ngIf="f.submitted && code.invalid" class="invalid-feedback">
+                                  <div *ngIf="code.errors.required">champ obligatoire</div>
+                                  <div *ngIf="code.errors.minlength">longeur minimale 5 </div>
+                              </div>
+                          </div>
+  
+                              <!-- <div class="form-group">
+                              <label for="qteMin">quantite minimale</label>
+                              <input type="number" class="form-control" id="qteMin" id="quantite" #qteMin="ngModel" min="1"required [(ngModel)]="stock.qteMin" name="qteMin" [ngClass]="{ 'is-invalid': f.submitted && qteMin.invalid }">
+                              <div *ngIf="f.submitted && qteMin.invalid" class="invalid-feedback">
+                                  <div *ngIf="qteMin.errors.min">qteMin < 1 </div>
+                                  <div *ngIf="qteMin.errors.required">champ obligatoire</div>
+                              </div>
+                          </div> -->
+  
+                              <button type="submit" class="btn btn-success">Ajouter</button>
+                          </form>
+                          </div>
+  
+                          <div [hidden]="!submitted">
+                          <h4>You submitted successfully!</h4>
+                          <button (click)="listRayons()" class="btn btn-success">retour</button>
+                          <!-- <button class="btn btn-success" (click)="newEmployee()">Add</button> -->
+                          </div>
+                      </div>
+                  </div>
+              </div>
+        </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,46 @@
+<div class="main-content">
+    <div  class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <button (click)="addStock()"  class="btn btn-danger">Ajouter</button>
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Table Stocks</h4>
+                        <p class="card-category"> les informations sur les stocks</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                        libelle
+                                    </th>
+                                    <th>
+                                        quantité
+                                    </th>
+                                    <th>
+                                        quantité minimale
+                                    </th>
+                                    <th>
+                                        actions
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let s of stocks">
+                                        <td class="align-middle">{{ s.libelleStock}}</td>
+                                        <td class="align-middle">{{ s.qte}}</td>
+                                        <td class="align-middle">{{ s.qteMin}}</td>
+                                        <td><button (click)="deleteStock(s.idStock)" class="btn btn-danger">Supprimer</button>
+                                            <button (click)="updateStock(s.idStock)" class="btn btn-info" style="margin-left: 10px">Modifier</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>

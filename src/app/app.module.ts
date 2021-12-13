@@ -23,10 +23,22 @@ import {
 } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { ClientComponent } from './client/client.component';
+import { ProductComponent } from './gestion/product/product.component';
+import { RayonComponent } from './gestion/rayon/rayon.component';
+import { StockComponent } from './gestion/stock/stock.component';
+import { AddProductComponent } from './gestion/add-product/add-product.component';
+import { AddRayonComponent } from './gestion/add-rayon/add-rayon.component';
+import { AddStockComponent } from './gestion/add-stock/add-stock.component';
+import { DetailProductComponent } from './gestion/detail-product/detail-product.component';
+import { UpdateProductComponent } from './gestion/update-product/update-product.component';
+import { UpdateStockComponent } from './gestion/update-stock/update-stock.component';
+import { UpdateRayonComponent } from './gestion/update-rayon/update-rayon.component';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   imports: [
     BrowserAnimationsModule,
+    MatSelectModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
@@ -41,6 +53,16 @@ import { ClientComponent } from './client/client.component';
     AppComponent,
     AdminLayoutComponent,
     ClientComponent,
+    ProductComponent,
+    RayonComponent,
+    StockComponent,
+    AddProductComponent,
+    AddRayonComponent,
+    AddStockComponent,
+    DetailProductComponent,
+    UpdateProductComponent,
+    UpdateStockComponent,
+    UpdateRayonComponent
 
   ],
   providers: [],

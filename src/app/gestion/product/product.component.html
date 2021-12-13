@@ -1,0 +1,84 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" (click)="listProducts()">Categorie</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" (click)="listelectro()">Electromenager</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" (click)="listalimentaire()" >Alimentaire</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" (click)="listquincaillerie()" >Quincaillerie</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    <button (click)="addProduit()"  class="btn btn-danger">Ajouter produit</button>
+      <div class="row mt-3">
+          <div *ngFor="let p of products" class="col-md-3">
+              <div class="product-box">
+                  <img src="{{ p.image}}" alt="product image" class="img-responsive">
+                  <h1>{{ p.libelle}}</h1>
+                  <div class="price"> {{ p.prixUnitaire | currency:'USD'}} </div>
+                  <button (click)="deleteProduct(p.idProduit)" class="btn btn-danger">Supprimer</button>
+                  <button (click)="updateProduct(p.idProduit)" class="btn btn-info" style="margin-left: 10px">Modifier</button>
+                                        
+              </div>
+          </div>
+          <!--
+          <div class="col-md-12">
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title ">Table Produits</h4>
+                      <p class="card-category"> les informations sur les produits</p>
+                  </div>
+                  <div class="card-body">
+                      <div class="table-responsive">
+                          <table class="table">
+                              <thead class=" text-primary">
+                                  <th>
+
+                                  </th>
+                                  <th>
+                                      idProduit
+                                  </th>
+                                  <th>
+                                      Code
+                                  </th>
+                                  <th>
+                                      libelle
+                                  </th>
+                                  <th>
+                                      prix unitaire
+                                  </th>
+                              </thead>
+                              <tbody>
+                                  <tr *ngFor="let tempProduct of products">
+                                      <td>
+                                          <img src="{{ tempProduct.image}}" alt="product image" height="50">
+                                      </td>
+                                      <td>{{ tempProduct.idProduit}}</td>
+                                      <td>{{ tempProduct.code}}</td>
+                                      <td>{{ tempProduct.libelle}}</td>
+                                      <td>{{ tempProduct.prixUnitaire | currency:'USD'}}</td>
+                                  </tr>
+                          
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          -->
+      </div>
+  </div>
+</div>
+
