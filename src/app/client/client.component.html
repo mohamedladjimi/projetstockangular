@@ -1,1 +1,78 @@
-<p>client works!</p>
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header card-header-danger">
+                <h4 class="card-title">Clients</h4>
+                <p class="card-category">Liste des clients</p>
+                <button class="btn-primary text-dark" [routerLink]="['/ajouterclient']">Ajouter</button>
+            </div>
+            <div class="card-body">
+                <div id="client">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class=" text-primary">
+                                <tr>
+                                    <th><span class="tim-note">Nom</span></th>
+                                    <th><span class="tim-note">Email</span></th>
+                                    <th><span class="tim-note">Password </span></th>
+                                    <th><span class="tim-note">Date Naissance </span></th>
+                                    <th><span class="tim-note">Profession </span></th>
+                                    <th><span class="tim-note">Categorie Client </span></th>
+                                    <th><span class="tim-note">Achat Total </span></th>
+                                    <th><span class="tim-note">Nbr Produits Achetés </span></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let u of list  let i=index">
+                                    <td>
+                                        {{ u.nom }}
+                                    </td>
+                                    <td>
+                                        {{ u.prenom }}
+                                    </td>
+                                    <td>
+                                        {{ u.email }}
+                                    </td>
+                                    <td>
+                                        {{ u.dateNaissance }}
+                                    </td>
+                                    <td>
+                                        {{ u.profession }}
+                                    </td>
+                                    <td>
+                                        {{ u.categorieClient }}
+                                    </td>
+                                     <td>
+                                        {{ getAchatTotal(u.idClient) }}
+                                    </td>
+                                    <td>
+                                        {{ getPorduitAchete(u.idClient) }}
+                                    </td> 
+                                    <td>
+                                        <button class="btn-danger"
+                                            (click)="deleteClient(list[i].idClient)">Delete</button>
+                                    </td>
+                                    <td>
+                                        <button class="btn-secondary" [routerLink]="['/updateclient']">Modifier</button>
+                                    </td>
+                                </tr>
+                                <div class="col-md-12">
+                                    <!-- <pagination-controls previousLabel="Prev" nextLabel="Next" responsive="true"
+                                        (pageChange)="handlePageChange($event)">
+                                    </pagination-controls> -->
+                                </div>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!-- | paginate : {
+            itemsPerPage: pageSize,
+            currentPage: page,
+            totalItems: count
+          }; -->
