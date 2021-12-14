@@ -1,0 +1,9 @@
+{
+    "/api/*": {
+    "target": "http://localhost:8089/SpringProject",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "pathRewrite": {"^/api" : ""}
+    }
+    }

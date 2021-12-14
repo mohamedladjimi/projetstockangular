@@ -17,6 +17,13 @@ import {MatRippleModule} from '@angular/material/core';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
+import { FournisseurComponent } from 'app/fournisseur/fournisseur.component';
+import { AddOrEditFournisseurComponent } from 'app/add-or-edit-fournisseur/add-or-edit-fournisseur.component';
+import { AddReclamationComponent } from 'app/add-reclamation/add-reclamation.component';
+import { ListReclamationFournisseurComponent } from 'app/list-reclamation-fournisseur/list-reclamation-fournisseur.component';
+import { ListReclamationComponent } from 'app/list-reclamation/list-reclamation.component';
+
+
 
 @NgModule({
   imports: [
@@ -30,6 +37,7 @@ import {MatSelectModule} from '@angular/material/select';
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
+   
   ],
   declarations: [
     DashboardComponent,
@@ -40,6 +48,10 @@ import {MatSelectModule} from '@angular/material/select';
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
+    FournisseurComponent,
+    AddOrEditFournisseurComponent,
+    AddReclamationComponent,
+
   ]
 })
 

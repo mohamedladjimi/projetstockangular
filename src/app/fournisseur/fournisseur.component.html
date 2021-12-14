@@ -1,0 +1,48 @@
+
+
+
+
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header card-header-primary">
+                <h3 class="card-title">Fournisseur</h3>
+                
+
+            </div>    
+            <div class="row">
+              <div class="col-lg-3 col-md-6 col-sm-6" *ngFor ="let u of list" >
+                <div class="card card-stats">
+                    <div class="card-header card-header-primay card-header-icon">
+                        <div class="card-icon">
+                            <img class="card-img img-responsive" width="90" height="90" src="{{this.fournisseurService.host+'/SpringProject/fournisseur/Imgfournisseur/'+u.idFournisseur}}"alt="">
+                        </div>
+                        
+                        <h3 class="card-title">{{u.libelle}}
+                            <small></small>
+                        </h3>
+                        <h6 class="card-title">Code:{{u.code}}</h6>
+                        <h6 class="card-title">Email:{{u.email}}</h6>
+                        <h6 class="card-title">Adresse:{{u.adresse}}</h6>
+                        <h6 class="card-title">Num Tel:{{u.numtel}}</h6>
+                        
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                          <a class="btn btn-primary justify-content-between"> <i class="material-icons">edit</i></a> 
+                          <a class="btn btn-sucess justify-content-between"> <i class="material-icons" (click)="reclationFournisseur(u.idFournisseur)">list</i></a>
+                          <a class="btn btn-info justify-content-end"> <i class="material-icons" (click)="deleteFournisseur(u.idFournisseur)">delete</i></a>  
+                        </div>
+                    </div>
+                </div>
+ 
+            </div>
+        </div>
+            <a class="btn btn-primary" (click)="addFournisseur()">  Add new Fournisseur  <i class="material-icons">add</i></a>
+            
+        </div>
+    </div>
+  </div>
+ 
+
+  

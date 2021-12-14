@@ -8,6 +8,11 @@ import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
+import { FournisseurComponent } from 'app/fournisseur/fournisseur.component';
+import { AddOrEditFournisseurComponent } from 'app/add-or-edit-fournisseur/add-or-edit-fournisseur.component';
+import { AddReclamationComponent } from 'app/add-reclamation/add-reclamation.component';
+import { ListReclamationComponent } from 'app/list-reclamation/list-reclamation.component';
+import { ListReclamationFournisseurComponent } from 'app/list-reclamation-fournisseur/list-reclamation-fournisseur.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -60,4 +65,11 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'maps',           component: MapsComponent },
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'upgrade',        component: UpgradeComponent },
+    { path: 'fournisseur',        component: FournisseurComponent },
+    { path: 'addfournisseur',        component: AddOrEditFournisseurComponent },
+    { path: 'addReclamation',        component: AddReclamationComponent},
+    { path: 'listReclamation',        component: ListReclamationComponent},
+    {path:"ListReclamationFournisseur", component:ListReclamationFournisseurComponent},
+
 ];
+

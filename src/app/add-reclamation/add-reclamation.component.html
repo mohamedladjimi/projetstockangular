@@ -1,0 +1,69 @@
+
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-8">
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title">Add Reclamation</h4>
+                      <p class="card-category">Complete this information</p>
+                  </div>
+                  <div class="card-body">
+                    <form [formGroup]="ReclamationForm" novalidate>
+                          
+                          <div class="row" >
+                            <div   class="col-md-12">
+                                    <label>Email Fournisseur  </label>
+                                    
+                                    <select  class="form-select form-select-lg mb-3"  id="idFournisseur" name=""  class="form-control" formControlName="idFournisseur" (change)="changeF($event)">
+                                        <option value="" disabled>Choose an email </option>
+                                        <option   value="{{f.idFournisseur}}" *ngFor="let f of fournisseurList">
+                                          {{f.email}}
+                                          
+                                        </option>
+                                      
+                                      </select>
+                                    
+                                
+                            </div>
+                          
+                        </div>
+                          <div class="row" >
+                            <div class="col-md-8">
+                                
+                                  <label>Objet Reclamation  </label>
+                                  <mat-form-field class="example-full-width">
+                                  <input  matInput placeholder="objet" type="text" formControlName="objet">
+                                  </mat-form-field>
+                            </div>
+                            <div  *ngIf="!objet?.valid && (description?.dirty ||objet?.touched)">
+                              <div class="alert alert-danger"[hidden]="!code.errors.required">
+                                Objet is required 
+                              </div>
+                            </div>  
+                        </div>  
+                          
+                            <div class="row" >
+                              <div class="col-md-8">
+                                  
+                                    <label>Description Reclamation  </label>
+                                    <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="description" type="text" formControlName="description">
+                                  </mat-form-field>
+                              </div>
+                              <div  *ngIf="!description?.valid && (description?.dirty ||description?.touched)">
+                                <div class="alert alert-danger"[hidden]="!code.errors.required">
+                                  Description is required 
+                                </div>
+                              </div>  
+                          </div>  
+                        
+                          <button  [disabled]="!ReclamationForm.valid" mat-raised-button  (click)="save(ReclamationForm)"class="btn btn-danger pull-right">Save Reclamation</button>
+                          <div class="clearfix"></div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

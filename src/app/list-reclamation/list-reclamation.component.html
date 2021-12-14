@@ -1,0 +1,64 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Liste des Reclamations</h4>
+                        <p class="card-category"> les informations des réclamations</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th >
+                                        ID
+                                    </th>
+                                    <th>
+                                        Objet
+                                    </th>
+                                    <th>
+                                        Description
+                                    </th>
+                                    <th>
+                                        Fournisseur Nom
+                                    </th>
+                                    <th>
+                                        Fournisseur Email
+                                    </th>
+                                    <th>
+                                         Actions
+                                    </th>
+                                </thead>
+                                <tbody>
+    
+                                    <tr  *ngFor ="let u of list">
+                                        <td>
+                                            {{u.idReclamation}}
+                                        </td>
+                                        <td>
+                                           {{u.objet}}
+                                        </td>
+                                        <td>
+                                            {{u.description}}
+                                        </td>
+                                        <td>
+                                            {{u.fournisseur.libelle}}
+                                        </td>
+                                        <td class="text-primary">
+                                            {{u.fournisseur.email}}
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-info justify-content-end"> <i class="material-icons" (click)="deleteReclamation(u.idReclamation)">delete</i></a> 
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+      
+        </div>
+    </div>
+  </div>

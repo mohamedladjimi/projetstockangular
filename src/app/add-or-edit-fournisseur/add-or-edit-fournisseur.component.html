@@ -1,0 +1,112 @@
+
+    <div class="main-content">
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="card">
+                      <div class="card-header card-header-primary">
+                          <h4 class="card-title">Add Fournisseur </h4>
+                          <p class="card-category">Complete the  information</p>
+                      </div>
+                      <div class="card-body">
+                          <form [formGroup]="FournisseurForm"  novalidate>
+   
+                              <div class="row" >
+                                 
+                                  
+                                  <div class="col-md-8">
+                                      <mat-form-field class="example-full-width">
+                                        
+                                        
+                                        <input type="text" matInput placeholder="Libelle" id="libelle"name="libelle" formControlName="libelle">
+                               
+                                      </mat-form-field>
+                                  </div>
+                                  <div  *ngIf="!libelle?.valid && (libelle?.dirty ||libelle?.touched)">
+                                    <div class="alert alert-danger"[hidden]="!libelle.errors.required">
+                                      Libelle is required
+                                    </div>
+                                    <div class="alert alert-danger"[hidden]="!libelle.errors.minlength">
+                                      Min Length is 5
+                                    </div>
+                                  </div>
+                              </div>
+                              <div class="row" >
+                                  <div class="col-md-8">
+                                      <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="code" formControlName="code">
+                                      </mat-form-field>
+                                  </div>
+                                  <div  *ngIf="!code?.valid && (libelle?.dirty ||code?.touched)">
+                                    <div class="alert alert-danger"[hidden]="!code.errors.required">
+                                      Code is required
+                                    </div>
+                                    <div class="alert alert-danger"[hidden]="!code.errors.minlength">
+                                      Max Length is 7
+                                    </div>
+                                  </div>
+                              </div>
+                              <div class="row" >
+                                  <div class="col-md-8">
+                                      <mat-form-field class="example-full-width">
+                                        <input matInput placeholder=" email" type="email" formControlName="email">
+                                      </mat-form-field>
+                                  </div>
+                                  <div  *ngIf="!email?.valid && (email?.dirty ||email?.touched)">
+                                    <div class="alert alert-danger"[hidden]="!code.errors.required">
+                                      Email is required or Invalid
+                                    </div>
+                                  </div>  
+                              </div>    
+                              <div class="row" >
+                                  <div class="col-md-8">
+                                      <mat-form-field class="example-full-width">
+                                        <input matInput placeholder=" adresse" type="text" formControlName="adresse">
+                                      </mat-form-field>
+                                  </div>
+                                  <div *ngIf="!adresse.valid && (adresse.dirty ||adresse.touched)">
+                                    <div class="alert alert-danger" [hidden]="!adresse.errors.required">
+                                      Adresse is required
+                                    </div>
+                                  </div>  
+                              </div>      
+                              <div class="row" >
+                                  <div class="col-md-8">
+                                      <mat-form-field class="example-full-width">
+                                        <input matInput placeholder=" numtel" type="text" formControlName="numtel">
+                                      </mat-form-field>
+                                  </div>
+                                  <div *ngIf="!numtel.valid && (numtel.dirty ||numtel.touched)">
+                                    <div class="alert alert-danger" [hidden]="!numtel.errors.required">
+                                      Numero is required
+                                    </div>
+                                  </div>  
+                              </div>
+                              
+                              <div class="row" >
+                                  <div class="col-md-8">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="" type="file" (change)="onSelectFile($event)" formControlName="image">
+                                      
+                                    </mat-form-field>
+                                  </div>
+                                  <div *ngIf="!image.valid && (image.dirty ||image.touched)">
+                                    <div class="alert alert-danger" [hidden]="!image.errors.required">
+                                      Image is required
+                                    </div>
+                                  </div> 
+                     
+                              </div>                 
+    
+                              <button  [disabled]="!FournisseurForm.valid" mat-raised-button  (click)="save(FournisseurForm)"class="btn btn-primary pull-right">Update Profile</button>
+                              <div class="clearfix"></div>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+            
+          </div>
+      </div>
+    </div>
+    
+    
