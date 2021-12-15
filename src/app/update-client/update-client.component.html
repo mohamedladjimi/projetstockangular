@@ -6,38 +6,42 @@
                 <p class="card-category">Entrer ces informations</p>
             </div>
             <div class="container">
-                
-                <form [formGroup]="clientform" (submit)="createClient()"> 
+
+                <form [formGroup]="clientform" (submit)="createClient()">
                     <div class="form-group">
                         <label>Nom</label>
-                        <input type="text" class="form-control" formControlName="nom">
+                        <input type="text" class="form-control" [value]="clientModif.nom" formControlName="nom">
                     </div>
                     <div class="form-group">
                         <label>Prenom</label>
-                        <input type="text" class="form-control" formControlName="prenom">
+                        <input type="text" class="form-control" [value]="clientModif.prenom" formControlName="prenom">
                     </div>
 
                     <div class="form-group ">
                         <label>Email </label>
-                        <input type="text" class="form-control" formControlName="email">
+                        <input type="text" class="form-control" [value]="clientModif.email" formControlName="email">
                     </div>
 
                     <div class="form-group ">
                         <label>Password</label>
-                        <input type="text" class="form-control" formControlName="password">
+                        <input type="text" class="form-control" [value]="clientModif.password"
+                            formControlName="password">
                     </div>
 
                     <div class="form-group ">
                         <label>Date Naissance</label>
-                        <input type="text" class="form-control" formControlName="dateNaissance">
+                        <input type="text" class="form-control" [value]="clientModif.dateNaissance"
+                            formControlName="dateNaissance">
                     </div>
                     <div class="form-group ">
                         <label>Profession</label>
-                        <input type="text" class="form-control" formControlName="profession">
+                        <input type="text" class="form-control" [value]="clientModif.profession"
+                            formControlName="profession">
                     </div>
                     <div class="form-group ">
                         <label>Categorie Client</label>
-                        <input type="text" class="form-control" formControlName="categorieClient">
+                        <input type="text" class="form-control" [value]="clientModif.categorieClient"
+                            formControlName="categorieClient">
                     </div>
                     <br>
                     <input type="submit" class="btn btn-primary mb-5" value="Mettre à jour le client">

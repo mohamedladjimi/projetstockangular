@@ -8,14 +8,11 @@ import { ComponentsModule } from './components/components.module';
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { ClientServiceService } from './Services/client-service.service';
-import { AddClientComponent } from './add-client/add-client.component';
-import { UpdateClientComponent } from './update-client/update-client.component';
 
 @NgModule({
   imports: [
     BrowserAnimationsModule,
     FormsModule,
-   
     ReactiveFormsModule,
     HttpClientModule,
     ComponentsModule,
@@ -26,8 +23,7 @@ import { UpdateClientComponent } from './update-client/update-client.component';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    AddClientComponent,
-    UpdateClientComponent,
+    
   ],
   providers: [ClientServiceService],
   bootstrap: [AppComponent]

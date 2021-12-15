@@ -16,6 +16,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSelectModule } from '@angular/material/select';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { UpdateClientComponent } from 'app/update-client/update-client.component';
+import { AddClientComponent } from 'app/add-client/add-client.component';
 
 @NgModule({
   imports: [
@@ -38,6 +40,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ClientComponent,
     IconsComponent,
     NotificationsComponent,
+    UpdateClientComponent,
+    AddClientComponent,
   ]
 })
 

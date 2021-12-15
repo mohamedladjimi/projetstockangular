@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Client } from 'app/Models/Client';
 import { ClientServiceService } from 'app/Services/client-service.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-client',
@@ -10,43 +9,29 @@ import { Observable } from 'rxjs';
 })
 export class ClientComponent implements OnInit {
 
-  // tutorials: any;
-  // currentTutorial = null;
-  // currentIndex = -1;
-  // title = '';
 
-  // page = 1;
-  // count = 0;
-  // pageSize = 3;
-  // pageSizes = [3, 6, 9];
-
+  //variables
   list: Client[];
+  updateComp: boolean = true;
+  currentClient: Client;
   productsUrl: string = "http://localhost:8089/SpringMVC/client";
+
+  //constructor
   constructor(private cs: ClientServiceService) { }
 
+  //ngOnInit
   ngOnInit(): void {
     this.getClients();
     console.log(this.list);
+    this.updateComp = this.updateComp;
   }
 
-  // getRequestParams(searchTitle, page, pageSize): any {
-  //   // tslint:disable-next-line:prefer-const
-  //   let params = {};
 
-  //   if (searchTitle) {
-  //     params[`title`] = searchTitle;
-  //   }
-
-  //   if (page) {
-  //     params[`page`] = page - 1;
-  //   }
-
-  //   if (pageSize) {
-  //     params[`size`] = pageSize;
-  //   }
-
-  //   return params;
-  // }
+  //functions
+  getCurrentClient(client: Client) {
+    this.currentClient = client;
+    this.updateComp = !this.updateComp;
+  }
 
   getAchatTotal(idClient: number): number {
     let nbr: number
@@ -64,15 +49,12 @@ export class ClientComponent implements OnInit {
     this.cs.getClients().subscribe(res => {
 
       this.list = res;
-     
+
     });
     console.log(this.list);
   }
 
-  // handlePageChange(event): void {
-  //   this.page = event;
-  //   this.getClients();
-  // }
+
 
   deleteClient(idClient: number) {
     this.cs.deleteClient(idClient).subscribe();

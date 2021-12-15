@@ -10,13 +10,7 @@ import { AddClientComponent } from 'app/add-client/add-client.component';
 import { UpdateClientComponent } from 'app/update-client/update-client.component';
 
 export const AdminLayoutRoutes: Routes = [
-   
-    { path: 'dashboard', component: DashboardComponent },
-    { path: 'user-profile', component: UserProfileComponent },
-    { path: 'table-list', component: TableListComponent },
     { path: 'client', component: ClientComponent },
-    { path: 'icons', component: IconsComponent },
-    { path: 'notifications', component: NotificationsComponent },
     { path: 'ajouterclient', component: AddClientComponent },
     { path: 'updateclient', component: UpdateClientComponent },
 ];
