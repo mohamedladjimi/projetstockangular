@@ -53,16 +53,7 @@ import {MatSelectModule} from '@angular/material/select';
     AppComponent,
     AdminLayoutComponent,
     ClientComponent,
-    ProductComponent,
-    RayonComponent,
-    StockComponent,
-    AddProductComponent,
-    AddRayonComponent,
-    AddStockComponent,
-    DetailProductComponent,
-    UpdateProductComponent,
-    UpdateStockComponent,
-    UpdateRayonComponent
+    
 
   ],
   providers: [],

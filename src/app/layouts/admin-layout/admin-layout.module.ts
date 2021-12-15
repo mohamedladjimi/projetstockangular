@@ -17,6 +17,17 @@ import {MatRippleModule} from '@angular/material/core';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
+import { ProductComponent } from 'app/gestion/product/product.component';
+import { RayonComponent } from 'app/gestion/rayon/rayon.component';
+import { AddProductComponent } from 'app/gestion/add-product/add-product.component';
+import { StockComponent } from 'app/gestion/stock/stock.component';
+import { AddRayonComponent } from 'app/gestion/add-rayon/add-rayon.component';
+import { AddStockComponent } from 'app/gestion/add-stock/add-stock.component';
+import { DetailProductComponent } from 'app/gestion/detail-product/detail-product.component';
+import { UpdateProductComponent } from 'app/gestion/update-product/update-product.component';
+import { UpdateRayonComponent } from 'app/gestion/update-rayon/update-rayon.component';
+import { UpdateStockComponent } from 'app/gestion/update-stock/update-stock.component';
+
 
 @NgModule({
   imports: [
@@ -40,6 +51,16 @@ import {MatSelectModule} from '@angular/material/select';
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
+    ProductComponent,
+    RayonComponent,
+    StockComponent,
+    AddProductComponent,
+    AddRayonComponent,
+    AddStockComponent,
+    DetailProductComponent,
+    UpdateProductComponent,
+    UpdateStockComponent,
+    UpdateRayonComponent
   ]
 })
 
