@@ -22,8 +22,8 @@ export class ClientServiceService {
   addClient(c: Client): Observable<Client> {
     return this.Http.post<Client>(this.url + "/add-client/", c, this.httpOptions);
   }
-  updateClient(c: Client) {
-    return this.Http.put<Client>(this.url + "/modify-client", c, this.httpOptions);
+  updateClient(c: Client, idClient: number) {
+    return this.Http.put<Client>(this.url + "/modify-client/" + idClient, c, this.httpOptions);
   }
   deleteClient(idClient: number): Observable<Client> {
     return this.Http.delete<Client>(this.url + "/remove-client/" + idClient);

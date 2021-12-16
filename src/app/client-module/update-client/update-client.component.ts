@@ -1,5 +1,5 @@
-import { Component, Input, OnChanges, OnInit, SimpleChange, SimpleChanges } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CategorieClient } from 'app/Models/CategorieClient';
 import { Client } from 'app/Models/Client';
 import { Profession } from 'app/Models/Profession';
@@ -12,9 +12,14 @@ import { ClientServiceService } from 'app/Services/client-service.service';
 })
 export class UpdateClientComponent implements OnInit, OnChanges {
 
+  //inputs
+  @Input() data: Client;
+  @Input() idClient: number;
+
+  //outputs
+  @Output() update = new EventEmitter<boolean>();
 
   //variables
-  @Input() data: Client;
   client: Client;
   clientform: FormGroup;
   clientPlaceholder: Client = {
@@ -38,26 +43,37 @@ export class UpdateClientComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.clientModif = this.clientPlaceholder;
     this.clientform = new FormGroup({
-      nom: new FormControl(),
-      prenom: new FormControl(),
-      email: new FormControl(),
-      password: new FormControl(),
-      dateNaissance: new FormControl(),
+      nom: new FormControl("", [Validators.required, Validators.pattern("^[a-zA-Z]*")]),
+      prenom: new FormControl("", [Validators.required, Validators.pattern("^[a-zA-Z]*")]),
+      email: new FormControl("", [Validators.required, Validators.pattern("^[a-zA-Z0-9._-]+@gmail.com")]),
+      password: new FormControl("", [Validators.required, Validators.pattern("^[0-9]*")]),
+      dateNaissance: new FormControl("", [Validators.required]),
       profession: new FormControl(),
       categorieClient: new FormControl(),
     })
   }
   ngOnChanges(changes: SimpleChanges): void {
     this.clientModif = this.data;
+    this.clientform.setValue({
+      nom: this.data.nom,
+      prenom: this.data.prenom,
+      email: this.data.email,
+      password: this.data.password,
+      dateNaissance: this.data.dateNaissance,
+      profession: this.data.profession,
+      categorieClient: this.data.categorieClient,
+    });
   }
 
-  updateClient(client: Client) {
-    this.cs.updateClient(client).subscribe();
-    console.log(client);
+  updateClient(client: Client, idClient) {
+    this.cs.updateClient(client, idClient).subscribe();
+    this.update.emit(true);
+    this.ngOnInit();
   }
 
   createClient() {
     this.client = this.clientform.value;
-    this.updateClient(this.client);
+    this.updateClient(this.client, this.idClient);
   }
+
 }

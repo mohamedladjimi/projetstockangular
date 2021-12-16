@@ -3,17 +3,19 @@ import { Client } from 'app/Models/Client';
 import { ClientServiceService } from 'app/Services/client-service.service';
 
 @Component({
-  selector: 'app-client',
-  templateUrl: './client.component.html',
-  styleUrls: ['./client.component.css']
+  selector: 'app-list-client',
+  templateUrl: './list-client.component.html',
+  styleUrls: ['./list-client.component.scss']
 })
-export class ClientComponent implements OnInit {
+export class ListClientComponent implements OnInit {
 
 
   //variables
   list: Client[];
+  refresh: boolean = true
   updateComp: boolean = true;
   currentClient: Client;
+  id: number;
   productsUrl: string = "http://localhost:8089/SpringMVC/client";
 
   //constructor
@@ -22,13 +24,13 @@ export class ClientComponent implements OnInit {
   //ngOnInit
   ngOnInit(): void {
     this.getClients();
-    console.log(this.list);
     this.updateComp = this.updateComp;
   }
 
 
   //functions
-  getCurrentClient(client: Client) {
+  getCurrentClient(client: Client, i: number) {
+    this.id = i;
     this.currentClient = client;
     this.updateComp = !this.updateComp;
   }
@@ -47,18 +49,18 @@ export class ClientComponent implements OnInit {
 
   getClients() {
     this.cs.getClients().subscribe(res => {
-
       this.list = res;
-
     });
     console.log(this.list);
   }
 
 
+  getUpdateVal(val: boolean) {
+    this.updateComp = val;
+  }
 
   deleteClient(idClient: number) {
     this.cs.deleteClient(idClient).subscribe();
-    console.log(idClient);
     this.ngOnInit();
   }
 }

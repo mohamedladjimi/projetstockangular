@@ -4,7 +4,7 @@
             <div class="card-header card-header-danger">
                 <h4 class="card-title">Clients</h4>
                 <p class="card-category">Liste des clients</p>
-                <button class="btn-primary text-dark" [routerLink]="['/ajouterclient']">Ajouter</button>
+                <button class="btn-primary text-dark" [routerLink]="['/ajout']">Ajouter</button>
             </div>
             <div class="card-body">
                 <div id="client">
@@ -42,6 +42,8 @@
                                     <td>
                                         {{ u.categorieClient }}
                                     </td>
+                                    <td></td>
+                                    <td></td>
                                     <!-- <td>
                                         {{ getAchatTotal(u.idClient) }}
                                     </td>
@@ -54,7 +56,7 @@
                                     </td>
                                     <td>
                                         <button class="btn-secondary"
-                                            (click)="getCurrentClient(list[i])">Modifier</button>
+                                            (click)="getCurrentClient(list[i],list[i].idClient)">Modifier</button>
                                     </td>
                                 </tr>
                                 <div class="col-md-12">
@@ -67,5 +69,6 @@
         </div>
 
         <div [ngClass]="{'disabled':updateComp}">
-            <app-update-client [data]="currentClient"></app-update-client>
+            <app-update-client [data]="currentClient" [idClient]="id" (update)="getUpdateVal($event)">
+            </app-update-client>
         </div>
